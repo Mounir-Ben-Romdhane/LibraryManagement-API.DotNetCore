@@ -18,6 +18,8 @@ namespace GestionLivres.Repositories
         IList<Order> GetOrdersOfUser(int userId);
         IList<Order> GetAllOrders();
         bool ReturnBook(int userId, int livreId);
+
+        void InsertCategory(Category category);
         
     }
 }

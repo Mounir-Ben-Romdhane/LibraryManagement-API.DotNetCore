@@ -21,6 +21,7 @@ namespace GestionLivres.Repositories
 
         public async Task<Livre> AddLivreAsync(Livre request)
         {
+            request.DateEdition = DateTime.Now;
             var livre = await context.Livres.AddAsync(request);
             await context.SaveChangesAsync();
 
@@ -201,6 +202,12 @@ namespace GestionLivres.Repositories
             }
 
             return returned;    
+        }
+
+        public void InsertCategory(Category category)
+        {
+            context.Category.Add(category);
+            context.SaveChanges();
         }
     }
 }

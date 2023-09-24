@@ -98,7 +98,9 @@ namespace GestionLivres.Repositories
                 new Claim(ClaimTypes.Role,role.RoleName),
                 new Claim(ClaimTypes.Name,$"{user.Username}"),
                 new Claim("myClaims",jsonList),
-                new Claim("userId",$"{user.Id}")
+                new Claim("userId",$"{user.Id}"),
+                new Claim("blocked",$"{user.Blocked}"),
+                new Claim("isActive",$"{user.Active}")
             });
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha256);
             

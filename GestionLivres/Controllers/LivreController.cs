@@ -40,7 +40,7 @@ namespace GestionLivres.Controllers
         }
 
         [HttpPost]
-        [Route("Add")]
+        [Route("InsertBook")]
         public async Task<IActionResult> AddLivreAsync([FromBody] Livre request)
         {
             //Add livre
@@ -67,7 +67,7 @@ namespace GestionLivres.Controllers
         }
 
         [HttpPut]
-        [Route("Livres/{livreId:int}")]
+        [Route("/Livres/{livreId:int}")]
         public async Task<IActionResult> UpdateLivreAsync([FromRoute] int livreId, [FromBody] Livre requet)
         {
             //Check livre exist
@@ -88,7 +88,7 @@ namespace GestionLivres.Controllers
         }
 
         [HttpDelete]
-        [Route("/Livres/{livreId:int}")]
+        [Route("/DeleteBook/{livreId:int}")]
         public async Task<IActionResult> deleteLivreAsync([FromRoute] int livreId)
         {
             //Check livre exist
@@ -100,12 +100,12 @@ namespace GestionLivres.Controllers
                 if (deletedLivre != null)
                 {
                     //Return livre
-                    return Ok(deletedLivre);
+                    return Ok("success");
                 }
 
             }
             //Livre not found
-            return NotFound();
+            return Ok("fail");
 
         }
 
@@ -140,6 +140,15 @@ namespace GestionLivres.Controllers
             var result = uow.LivreRepository.ReturnBook(int.Parse(userId), int.Parse(bookId)) ? "success" : "Not returned";
 
             return Ok(result);
+        }
+
+        [HttpPost("InsertCategory")]
+        public IActionResult InsertCategory(Category category)
+        {
+            category.Libelle = category.Libelle.ToLower();
+            category.SubCategory = category.SubCategory.ToLower();
+            uow.LivreRepository.InsertCategory(category);
+            return Ok("Inserted");
         }
 
     
