@@ -2,25 +2,22 @@ Server-Side (Backend) Description:
 Title: Library Management System Backend
 
 Description:
-This repository hosts the backend code for the Library Management System Website. 
-The backend is responsible for handling user authentication, JWT-based authorization, managing books and categories, user blocking, and fine calculations. 
-It serves as the core of the application, connecting to the database and providing APIs for the frontend.
+This repository hosts the server-side code for the Library Management System, a comprehensive platform for managing books, users, and orders. 
+The backend component handles data storage, user authentication, and a range of features such as user management, book management, and fine calculation.
 
 Key Features:
 
-- Authentication system allowing users to register and log in
-- JWT authentication for secure user data storage in tokens
-- Role-based authorization, distinguishing between admin and regular users
-- Management of books and categories by admin
-- User blocking/unblocking and disabling/enabling by admin
-- Fine calculation to track overdue books
-- Real-time updates without the need for page refresh
-  
+- User Authentication: Allows users to register, log in, and create accounts.
+- JWT Authentication: Secures user data with token-based storage.
+- Role-Based Authorization: Implements role-based access control with distinct permissions for admin and regular users.
+- Media Content Management: Supports book and category management, including insertion, deletion, and viewing.
+- Order Management: Enables users to order books, view their orders, and return books.
+- Fine Calculation: Calculates and displays fines for overdue books.
+- User Management: Admins can manage users, including blocking/unblocking and enabling/disabling accounts.
+
 Getting Started:
 
-1. Clone this repository
-2. Install the necessary dependencies
-3. Configure environment variables
-4. Set up a database
-5. Run the server
-6. For the frontend, visit Client-Side Repo to set up the UI
+1. Clone this repository.
+2. Set up the necessary environment variables and configurations.
+3. Install required dependencies.
+4. Start the server.
